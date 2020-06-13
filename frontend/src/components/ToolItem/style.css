@@ -1,0 +1,66 @@
+.content {
+  background: #FFFFFF;
+  width: 1000px;
+  min-height: 120px;
+  margin-bottom: 30px;
+
+  border-radius: 5px;
+  border: 1px solid #B1ADB9;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: all 0.2s;
+}
+
+.content:hover {
+  box-shadow: 0px 10px 10px #0000000D;
+  transform: translate(-2px, -2px);
+}
+
+.content div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 30px;
+}
+
+.content div .title {
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+.content div .remove {
+  font-weight: 600;
+  margin-right: 15px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.content div .remove img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.content div .remove p {
+  margin: 0;
+}
+
+.content .description {
+  margin: 0 10px 0 15px;
+  max-width: 970px;
+  min-height: 30px;
+}
+
+.content .tags {
+  margin: 15px;
+  max-width: 970;
+  min-height: 20px;
+  font-weight: 700;
+}

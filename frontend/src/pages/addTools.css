@@ -1,0 +1,109 @@
+
+.addScreen  {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+
+  width: 600px;
+  height: 500px;
+  background: #FFFFFF;
+  border: 1px solid #B1ADB9;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.addScreen.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.addScreen  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addScreen  header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addScreen  header div img {
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+}
+
+.addScreen  header span {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.addScreen  header span img {
+  width: 17px;
+  height: 17px;
+}
+
+.addScreen  main {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  right: 40px;
+  bottom: 60px;
+}
+
+.addScreen  main h5 {
+  margin: 20px 0 10px 0;
+}
+
+.addScreen  main input {
+  width: 100%;
+  font-size: 16px;
+}
+
+.addScreen  main #des{
+  max-width: 100%;
+  min-width: 100%;
+  height: 100px;
+  max-height: 110px;
+  min-height: 100px;
+  resize: none;
+}
+
+.addScreen  footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.addScreen  footer .addTool {
+  margin-right: 30px;
+  border: 1px solid #B1ADB9;
+  border-radius: 5px;
+  width: 130px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.addScreen  footer .addTool:hover {
+  box-shadow: 0px 10px 10px #0000003F;
+  transform: translate(-2px, -2px);
+}
+
+.addScreen  footer .addTool img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}

@@ -1,0 +1,56 @@
+
+.delScreen {
+  position: fixed;
+  width: 400px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  
+  background: #FFFFFF;
+  border-radius: 5px;
+  border: 1px solid #B1ADB9;
+  z-index: 10;
+}
+
+.delScreen.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.delScreen h3, h5{
+  margin-left: 15px;
+}
+
+.delScreen footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delScreen footer h5 {
+  margin: 0;
+}
+
+.delScreen footer .cancel {
+  width: 60px;
+  height: 30px;
+  border: 1px solid #B1ADB9;
+  border-radius: 5px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delScreen footer .accept {
+  border: 1px solid #B1ADB9;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 110px;
+  margin: 0 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
