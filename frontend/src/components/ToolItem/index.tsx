@@ -1,18 +1,22 @@
 import React from 'react';
 
-import api from '../../services/ToolsAPI';
 import './style.css';
 import CloseIcon from '../../assets/close.svg';
 
 interface Props{
+  id: number;
   title: String;
+  link: string;
   description: String;
   tags: String[];
+  parentCallback: Function;
 }
 
 const ToolItem = (props: Props) => {
 
   function DelScreen() {
+    props.parentCallback(props.id);
+
     const screen = document.querySelector('.delScreen');
     const overlay = document.getElementById('overlay');
 
@@ -25,7 +29,7 @@ const ToolItem = (props: Props) => {
     <>
       <div className="content">
         <div>
-          <div className="title">{props.title}</div>
+          <a href={props.link} target="__blank" className="title">{props.title}</a>
           <div className="remove" onClick={DelScreen}>
             <img src={CloseIcon} alt="Delete"/>
             <p>remove</p>

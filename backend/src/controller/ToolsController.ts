@@ -20,13 +20,14 @@ class ToolsController {
 
   async show(request: Request, response: Response) {
     const tag = request.query.tag;
-  
-    if (!tag) {
+    const q = request.query.q;
+
+    if (!tag && !q) {
       response.status(400).json({ message: "Nenhuma tag requisitada." })
     }
-  
-    const result = await Tool.find({ tags: tag })
-  
+
+    const result = !tag ? await Tool.find({ title: q }) : await Tool.find({ tags: tag });
+
     if (!result) {
       response.status(404).json({ message: "Nenhuma tag encontrada." })
     }

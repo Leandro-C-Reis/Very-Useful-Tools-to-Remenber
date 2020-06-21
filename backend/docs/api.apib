@@ -1,0 +1,72 @@
+FORMAT: 1A
+HOST: https://localhost:3333
+
+# Very Useful Tools to Remenber API
+
+Api para listagem e cadastramento de ferramentas 
+da aplicação Very Useful Tools to Remember.
+
+# Group API
+
+## Sobre [/]
+
+Mensagem...
+
+# Group Tools
+
+## Cadastrar Ferramenta [/tools]
+
+### Cadastrar Ferramenta [POST]
+
++ Request Cadastrar uma ferramenta no banco de dados
+    + Attributes (Tool)
+
++ Response 201 (aplication/json)
+    + Attributes (ToolUpdate)
+
++ Response 406 (aplication/json)
+    + Attributes (Error)
+
+## Listar Ferramenta [/tools?{tag}&{q}]
+
+### Listar Ferramenta [GET]
+
++ Parameters
+    + tag: node (string, optional) - Tag de uma ou varias ferramentas
+    + q: Notion (string, optional) - Titulo de uma ou varias ferramentas
+
++ Response 200 (aplication/json)
+    + Attributes (array[Tool])
+
++ Response 404 (aplication/json)
+    + Attributes (Error)
+
++ Response 400 (aplication/json)
+    + Attributes (Error)
+
+## Deletar Ferramenta [/tools/{id}]
+
++ Parameters
+    + id: 1 (number, required) - ID da ferramenta
+
+### Deletar ferramenta [DELETE]
+
++ Response 204 (No-Content)
+
++ Response 404 (aplication/json)
+    + Attributes (Error)
+
+# Data Structures
+
+## Tool (object)
++ title (string) - Titulo da ferramentas
++ link (string) - Url da ferramentas
++ description (string) - Descrição da ferramentas
++ tags (array[string]) - Tags da ferramenta
+
+## ToolUpdate (Tool)
++ id (number) - Id da ferramenta
+
+## Error (object)
++ code: 400 (number) - Status code
++ message (string) - Mensagem do status

@@ -89,6 +89,7 @@
   border-radius: 5px;
   width: 130px;
   height: 30px;
+  outline: none;
 
   display: flex;
   justify-content: center;
@@ -100,6 +101,11 @@
 .addScreen  footer .addTool:hover {
   box-shadow: 0px 10px 10px #0000003F;
   transform: translate(-2px, -2px);
+  background: #C7C4CD;
+}
+
+.addScreen footer .addTool:active {
+  background: #B1ADB9;
 }
 
 .addScreen  footer .addTool img {
