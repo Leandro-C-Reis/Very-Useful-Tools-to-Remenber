@@ -3,16 +3,26 @@ HOST: https://localhost:3333
 
 # Very Useful Tools to Remenber API
 
-Api para listagem e cadastramento de ferramentas 
-da aplicação Very Useful Tools to Remember.
+API de acesso a ferramentas. 
 
 # Group API
 
 ## Sobre [/]
 
-Mensagem...
+Proposta através de um desafio da plataforma BossaBox a construção de uma API
+para Cadastrar/listar/deletar um conjunto ferramentas no banco de dados com uma estrutura
+de dados específica. As principais tecnologias utilizadas nessa API são: MongoDB como banco de dados 
+não relacional, Express para controle de requisições e rotas, cors para controle de quais
+paginas podem acessar a API, Typescript como linguagem de programação e Node executar os scripts da API.
 
 # Group Tools
+
+## Listar todas as Ferramentas [/list]
+
+### Listar ferramentas [GET]
+
++ Response 200 (aplication/json)
+    + Attributes (ToolUpdate)
 
 ## Cadastrar Ferramenta [/tools]
 
@@ -29,6 +39,9 @@ Mensagem...
 
 ## Listar Ferramenta [/tools?{tag}&{q}]
 
+O campo "tag" não pode estar preenchido sulmultâneamente ao campo "q".
+Caso ambos estejam preenchido, apenas o campo tag será considerado.
+
 ### Listar Ferramenta [GET]
 
 + Parameters
@@ -36,7 +49,7 @@ Mensagem...
     + q: Notion (string, optional) - Titulo de uma ou varias ferramentas
 
 + Response 200 (aplication/json)
-    + Attributes (array[Tool])
+    + Attributes (array[ToolUpdate])
 
 + Response 404 (aplication/json)
     + Attributes (Error)
