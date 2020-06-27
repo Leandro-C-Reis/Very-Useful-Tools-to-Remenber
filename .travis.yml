@@ -1,6 +1,7 @@
 before_script:
   - cd backend
-  
+  - yarn
+
 language: node_js
 
 node_js: 
