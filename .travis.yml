@@ -1,9 +1,9 @@
+before_script:
+  - cd backend
+  
 language: node_js
 
 node_js: 
   - 13.12
 
 os: windows
-
-before_script:
-  - cd backend
