@@ -1,6 +1,9 @@
 before_script:
   - cd backend
-  - yarn
+  - npm install
+
+script:
+  - npm run test
 
 language: node_js
 
