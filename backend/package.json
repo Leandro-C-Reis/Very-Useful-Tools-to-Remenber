@@ -7,7 +7,7 @@
     "start": "ts-node src/server.ts",
     "dev": "ts-node-dev src/server.ts --ignore __tests__",
     "pretest": "set NODE_ENV=test",
-    "test": "jest --detectOpenHandles"
+    "test": "jest "
   },
   "keywords": [],
   "author": "",

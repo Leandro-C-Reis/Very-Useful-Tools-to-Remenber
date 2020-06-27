@@ -1,13 +1,15 @@
-before_script:
-  - cd backend
-  - npm install
-
-script:
-  - npm run test
-
 language: node_js
 
 node_js: 
   - 13.12
+
+before_install:
+  - cd backend
+
+install:
+  - npm install
+
+script:
+  - npm run test
 
 os: windows
