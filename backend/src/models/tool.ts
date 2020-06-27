@@ -1,4 +1,9 @@
 import mongoose from 'mongoose';
+import dotenv from "dotenv"
+
+dotenv.config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+});
 
 const ToolSchema = new mongoose.Schema({
   id: Number,
@@ -8,4 +13,4 @@ const ToolSchema = new mongoose.Schema({
   tags: [String]
 });
 
-export default mongoose.model('tools', ToolSchema);
+export default mongoose.model(`${process.env.DB_NAME}`, ToolSchema);

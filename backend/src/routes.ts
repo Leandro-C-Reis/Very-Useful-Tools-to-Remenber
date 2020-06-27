@@ -5,7 +5,7 @@ import ToolsController from './controller/ToolsController';
 
 const routes = express();
 
-mongoose.connect('mongodb+srv://Leandro:omnistack@cluster0-qqe7b.mongodb.net/usw?retryWrites=true&w=majority', { 
+mongoose.connect('mongodb+srv://machine:machine@cluster0-qqe7b.mongodb.net/usw?retryWrites=true&w=majority', { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

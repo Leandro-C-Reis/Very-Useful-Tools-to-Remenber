@@ -23,26 +23,31 @@ class ToolsController {
     const q = request.query.q;
 
     if (!tag && !q) {
-      response.status(400).json({ message: "Nenhuma tag requisitada." })
+      response.status(400).json({ 
+        code: 400,
+        message: "Nenhuma tag requisitada." })
     }
 
-    const result = !tag ? await Tool.find({ title: q }) : await Tool.find({ tags: tag });
+    const result : any = !tag ? await Tool.find({ title: q }) : await Tool.find({ tags: tag });
 
-    if (!result) {
-      response.status(404).json({ message: "Nenhuma tag encontrada." })
+    if (result[0] === undefined) {
+      response.status(404).json({
+        code: 404,
+        message: "Nenhuma ferramenta encontrada." })
     }
-  
-    const tools = result.map((tool: any) => {
-       return {
-        id: tool.id,
-        title: tool.title,
-        link: tool.link,
-        description: tool.description,
-        tags: tool.tags
-      }
-    })
-  
-    response.json(tools);
+    else {
+      const tools = result.map((tool: any) => {
+         return {
+          id: tool.id,
+          title: tool.title,
+          link: tool.link,
+          description: tool.description,
+          tags: tool.tags
+        }
+      })
+    
+      response.json(tools);
+    }
   }
 
   async create(request: Request, response: Response) {
@@ -80,7 +85,9 @@ class ToolsController {
     const status = await Tool.deleteOne({ id: Number(id) });
   
     if (status.n === 0){
-      response.status(404).json({ message: `Nenhuma ferramenta encontrada com id: ${id}` })
+      response.status(404).json({ 
+        code: 404,
+        message: `Nenhuma ferramenta encontrada com id: ${id}` })
     }else {
       response.status(204).json();
     }
