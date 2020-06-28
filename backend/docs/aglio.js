@@ -1,3 +1,4 @@
+// utiliza a biblioteca aglio para converter o blueprint para HTML
 var aglio = require('aglio');
 
 // Render a blueprint with a template by name

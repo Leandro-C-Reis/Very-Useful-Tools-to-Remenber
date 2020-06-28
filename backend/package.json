@@ -19,7 +19,6 @@
     "@types/jest": "^26.0.0",
     "@types/mongoose": "^5.7.22",
     "@types/supertest": "^2.0.9",
-    "aglio": "^2.3.0",
     "jest": "^26.1.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.1",

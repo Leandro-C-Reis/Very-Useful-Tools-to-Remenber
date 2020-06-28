@@ -57,4 +57,31 @@ describe('Tools', () => {
       expect(response.status).toBe(204);
     }
   });
+
+  it('should list with invalid parameters', async () => {
+    const response : any = await request(app).get('/tools');
+
+    expect(response.status).toBe(400);
+  });
+  
+  it('should list with not existent tag or title', async () => {
+    const response : any = await request(app).get("/tools?q=TEST");
+
+    expect(response.status).toBe(404);
+  });
+
+  it('should not create a tool with incomplete data', async () => {
+    const response : any = await request(app).post("/tools").send({
+      title: "GitHub"
+    });;
+
+    expect(response.status).toBe(406);
+  })
+
+  it('should not delete a tool with incorrect ID', async () => {
+    const response: any = await request(app).delete('/tools/0');
+
+    expect(response.status).toBe(404);
+  });
+
 });

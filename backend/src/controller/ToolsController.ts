@@ -15,7 +15,7 @@ class ToolsController {
      }
    })
   
-    response.json(tools);
+    return response.json(tools);
   }
 
   async show(request: Request, response: Response) {
@@ -23,7 +23,7 @@ class ToolsController {
     const q = request.query.q;
 
     if (!tag && !q) {
-      response.status(400).json({ 
+      return response.status(400).json({ 
         code: 400,
         message: "Nenhuma tag requisitada." })
     }
@@ -31,7 +31,7 @@ class ToolsController {
     const result : any = !tag ? await Tool.find({ title: q }) : await Tool.find({ tags: tag });
 
     if (result[0] === undefined) {
-      response.status(404).json({
+      return response.status(404).json({
         code: 404,
         message: "Nenhuma ferramenta encontrada." })
     }
@@ -46,7 +46,7 @@ class ToolsController {
         }
       })
     
-      response.json(tools);
+      return response.json(tools);
     }
   }
 
@@ -54,7 +54,7 @@ class ToolsController {
     const { title, link, description, tags} = request.body;
   
     if (title == null || link == null || description == null || tags == null) {
-      response.status(406).json({ message: "Informações incompletas." });
+      return response.status(406).json({ message: "Informações incompletas." });
     }
   
     let id: number;
@@ -74,9 +74,9 @@ class ToolsController {
       tags
     }) 
   
-    if (!status) response.status(501).json({ message: "Erro ao comunicar com banco de dados." })
+    if (!status) return response.status(501).json({ message: "Erro ao comunicar com banco de dados." })
   
-    response.status(201).json({ id, title, link, description, tags });
+    return response.status(201).json({ id, title, link, description, tags });
   }
 
   async destroy(request: Request, response: Response) {
@@ -85,11 +85,11 @@ class ToolsController {
     const status = await Tool.deleteOne({ id: Number(id) });
   
     if (status.n === 0){
-      response.status(404).json({ 
+      return response.status(404).json({ 
         code: 404,
         message: `Nenhuma ferramenta encontrada com id: ${id}` })
     }else {
-      response.status(204).json();
+      return response.status(204).json();
     }
   }
 }
